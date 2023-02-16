@@ -7,7 +7,7 @@
 
 <%	request.setCharacterEncoding("UTF-8");	%>
 
-	<!-- http://localhost:8080/AcademyProject/JoinMembership.jsp -->
+	<!-- http://localhost:8080/ddd/JoinMembership.jsp -->
 	  
    <style>
     * {top: 0; margin: 0; box-sizing: border-box;}
@@ -228,7 +228,7 @@
                 <a href="#"><img src="" alt="">Return home</a></div>
 
                 <div class="sign-in">
-                <h2>휴먼시네마</h2>
+                <img src="/과제제출/2차 프로젝트/LogoCI(불투명)1.png" id="LogoCI">
                 <form action="" method="get" >
                     <div class="join_login">
                             <input id="inputId" type="text" name="id" placeholder="아이디로 사용할 이메일을 입력하세요" maxlength="20" >
@@ -237,7 +237,7 @@
                             <input id="inputName" type="text" name="name" placeholder="별명을 입력하세요">
                         </div>
                         <button class="submit" onclick="fn_joinMember()">회원가입</button><br>
-                        <div class="footer_link"><a href="http://localhost:8080/AcademyProject/LoginMember.jsp">이미 가입 되어 있나요? 로그인으로</a></div>
+                        <div class="footer_link"><a href="http://localhost:8080/ddd/LoginMember.jsp">이미 가입 되어 있나요? 로그인으로</a></div>
                         <!-- <img src="경로" alt="" class="btn" onclick="clickBtn(); /> -->
                     </div>
             </div>

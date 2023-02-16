@@ -7,7 +7,7 @@
 <title>로그인</title>
 
 	
-<style>
+    <style>
     * {top: 0; margin: 0; box-sizing: border-box;}
     a { text-decoration: none; }
     li { list-style: none; }
@@ -94,11 +94,9 @@
         width: 80%;
         flex-direction: column;
         margin: auto;
+
     }
-    .right_login h2{
-        text-align: center; 
-        margin-bottom: 50px;
-    }
+
     .right_login input {
         border: none;
         border-bottom: 1px solid darkred;
@@ -114,7 +112,7 @@
 
     .submit {
         margin: auto;
-        margin-top: 50px;
+        margin-top: 30px;
         padding: 15px 120px;
         width: 100%;
         border: none;
@@ -138,12 +136,18 @@
         background-size: 100%;
     }
 
+    #LogoCI{
+        width: 200px;
+        margin-top: -50px;
+    }
     
 
     /*--------section class="" part ------*/
     section {display: flex; overflow: hidden;}
     img{width: 100%;}
     
+    
+
     </style>
 
     <script>
@@ -160,7 +164,7 @@
                 console.log(submit);
 
                 if (inputId.length == 0 || inputId == "") {
-                    alert("이메일을 입력하세요.");
+                    alert("아이디를 입력하세요.");
                     return false;
 
                 }else if (inputPwd.length == 0 || inputPwd == "") {
@@ -170,26 +174,25 @@
                 }else if (inputId == "admin" && inputPwd == '0000') {
                     alert("로그인 되었습니다.")
                 } else {
-                    alert("이메일과 비밀번호를 다시 확인해주세요.")
+                    alert("아이디와 비밀번호를 다시 확인해주세요.")
                 }
             }
 
-            function sliding() {
-                move(-1);
-                if (currentIdx === sliderCloneLis.length -1)
-                    setTimeout(() => {
-                    slider.style.transition = 'none';
-                    currentIdx = 1;
-                    translate = -liWidth;
-                    slider.style.transform = `translateX(${translate}px)`;
-                    }, speedTime);
-            }
+            var myImage = document.getElementById("mainImage");
+            var imageArray = [ 
+                "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86796/86796_1000.jpg",
+                "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86701/86701_1000.jpg", 
+                "/blog/resource/img/m3.jpg" ];
+            var imageIndex = 0;
 
-            function showSliding() {
-                setInterval(sliding, 1500);
+            function changeImage() {
+                myImage.setAttribute("src", imageArray[imageIndex]);
+                imageIndex++;
+                if (imageIndex >= imageArray.length) {
+                    imageIndex = 0;
+                }
             }
-            showSliding();
-   
+	setInterval(changeImage, 3000);
     </script>
 </head>
 
@@ -201,7 +204,7 @@
             <li><a href="#">영화</a></li>
             <li><a href="#">예매</a></li>
             <li><a href="#">극장</a></li>
-            <a class="logo" href="#home">로고</a>
+            <a class="logo" href="#"><img src="/과제제출/2차 프로젝트/LogoCI(불투명)3.png"></a>
             <li><a href="#">스토어</a></li>
             <li><a href="#">고객센터</a></li>
             <li><a href="#">로그인</a></li>
@@ -211,8 +214,8 @@
         <div class="login_box">
             <div class="left_img">
                 <div class="slider">
-                    <li><img class="img1" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86796/86796_1000.jpg"></li>
-                    <li><img class="img2" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86701/86701_1000.jpg"></li>
+                    <li><img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86796/86796_1000.jpg"></li>
+                    <li><img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86701/86701_1000.jpg"></li>
                     <li><img class="img3" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86800/86800_1000.jpg"></li>
                     <li><img class="img4" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86748/86748_1000.jpg"></li>
                 </div>
@@ -222,15 +225,16 @@
                 <a href="#"><img src="" alt="">Return home</a></div>
 
                 <div class="sign-in">
-                <h2>휴먼시네마</h2>
+                <img src="/과제제출/2차 프로젝트/LogoCI(불투명)1.png" id="LogoCI">
                 <form action="">
                 <input id="inputId" type="text" placeholder="아이디를 입력하세요" maxlength="20">
                 <input id="inputPwd" type="text" placeholder="비밀번호를 입력하세요" maxlength="20">
                 <button class="submit">로그인</button><br>
-                <div class="footer_link"><a href="http://localhost:8080/AcademyProject/JoinMembership.jsp">신규회원은 언제나 환영! 회원가입!</a></div>
+                <div class="footer_link"><a href="#">신규회원은 언제나 환영! 회원가입!</a></div>
+                <!-- <img src="경로" alt="" class="btn" onclick="clickBtn(); /> -->
                 </form></div>
             </div>
         </div>
-    </section>        
+    </section>     
 </body>
 </html>
