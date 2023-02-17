@@ -43,7 +43,10 @@
       height: 5px;
       margin: 12px 0 12px 25px;}
     .logo > img { height: 50px;}
-    nav {float: left;}
+    nav {
+    display: flex;
+    justify-content: space-around;
+    }
     .nav-items {margin-right: 20px;}
     .nav-items > li {display: inline-block;}
     .nav-items > li > a {

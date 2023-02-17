@@ -1,28 +1,34 @@
 package UserPage;
 
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
-@WebServlet("/mem.do")
-public class MemberController extends HttpServlet {
+
+@WebServlet("/user/*")
+public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	MemberDAO memberDAO;
-	
-	public void init(ServletConfig config) throws ServletException {
-		memberDAO = new MemberDAO();
-	}
+       
+    public UserController() {
+        super();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,13 +36,13 @@ public class MemberController extends HttpServlet {
 	}
 	
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List list = memberDAO.listMembers();
 		
-		request.setAttribute("list", list);
+		String nextPage = null;
 		
-		// 서블릿에서 context path는 적지않는다-자동으로 붙여준다
-		RequestDispatcher rd = request.getRequestDispatcher("/test01/listMembers.jsp");
-		rd.forward(request, response);
+		String action = request.getPathInfo();
+				System.out.println("action:" + action);
+		
+		
 	}
 
 }

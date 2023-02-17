@@ -1,4 +1,4 @@
-package sec01.ex01;
+package UserPage;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -14,6 +14,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class MemberDAO {
+
 	public List listMembers() {
 		List membersList = new ArrayList();
 		
