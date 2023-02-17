@@ -4,10 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title>회원가입</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<%-- 주소:  http://localhost:8080/HomePage/Sign-In.jsp --%>
 
 <style>
     * {top: 0; margin: 0; box-sizing: border-box;}
@@ -21,6 +19,7 @@
         color: #58666e;
         background-color: #f0f3f4;
         -webkit-font-smoothing: antialiased;
+        /* iphone font size 변경 방지 */
         -webkit-text-size-adjus: 100%;  
     }
 
@@ -30,7 +29,6 @@
         position:relative;
         /* background:url() no-repeat center; */
     }
-    
     header {
         width: 100%;
         height: 80px;
@@ -76,10 +74,6 @@
         
     .login_box .left_img{width: 60%; height: 100%;}
     .login_box .right_login{width: 65%; height: 100%; padding: 25px 25px;}
-    
-    
-    .right_login .top_link a{color: darkred; font-weight: 400;}
-    .right_login .top_link{height: 20px; }
 
     .footer_link a{color: black; font-weight: 500;}
     .footer_link{text-align: center;}
@@ -101,13 +95,13 @@
     .right_login input {
         border: none;
         border-bottom: 1px solid darkred;
-        margin: 15px 0px;
+        margin: 10px 0px;
         padding: 10px 10px;
         width: 100%;
         overflow: hidden;
         background: transparent;
-        font-weight: 600;
-        font-size: 17px;
+        font-weight: 550;
+        font-size: 16px;
     }
     .right{background: linear-gradient(-45deg, #dcd7e0, #fff);}
 
@@ -138,6 +132,7 @@
     }
     section {display: flex; overflow: hidden;}
     img{width: 100%;}
+    
     </style>
     <script>
         window.onload = function(){
@@ -155,32 +150,39 @@
             };
             setInterval(fnSlide, 3000);
         }
-       
-        function fn_loginMember(){
 
-            var inputId = document.getElementById("inputId").value;
-            var inputPwd = document.getElementById("inputPwd").value;
-            var submit = document.getElementById("submit");
-            // var login_findPw = document.getElementById('login_findPw');
-            // var login_findid = document.getElementById('login_findid');
+        function fn_joinMember() {
+                var inputId = document.getElementById("inputId").value;
+                var inputPwd1 = document.getElementById("inputPwd1").value;
+                var inputPwd2 = document.getElementById("inputPwd2").value;
+                var inputName = document.getElementById("inputName").value;
+                var inputNumber = document.getElementById("inputNumber").value;
+                console.log(inputPwd2.value, inputPwd1.value, inputPwd2.value != inputPwd1.value)
 
-            // login_btn.addEventListener('click',(fn_loginMember))
-            console.log(submit);
+                if (inputId.length == 0 || inputId == "") {
+                    alert("아이디를 입력하세요.");
+                    return false;
 
-            if (inputId.length == 0 || inputId == "") {
-                alert("아이디를 입력하세요.");
-                return false;
+                }else if (inputPwd1.length == 0 || inputPwd1 == "") {
+                    alert("비밀번호를 입력하세요.");
+                    return false;
 
-            }else if (inputPwd.length == 0 || inputPwd == "") {
-                alert("비밀번호를 입력하세요.");
-                return false;
+                }else if (inputPwd2!= inputPwd1) {
+                    alert("비밀번호가 일치하지 않습니다.");
+                    return false;
 
-            }else if (inputId == "admin" && inputPwd == '0000') {
-                alert("로그인 되었습니다.")
-            } else {
-                alert("아이디와 비밀번호를 다시 확인해주세요.")
-            }
-        } 
+                }else if (inputName.length == 0 || inputName == "") {
+                    alert("이름을 입력하세요.");
+                    return false;
+
+                }else if (inputNumber.length == 0 || inputNumber == "") {
+                    alert("연락처를 입력하세요.");
+                    return false;
+                }else { 
+                    alert("회원가입을 환영합니다.");
+                    document.submit.submit(); 
+                }
+            };   
     </script>
 </head>
 <body>
@@ -215,19 +217,21 @@
                 </div>
             </div>
             <div class="right_login">
-                <div class="top_link">
-                <a href="#">Return home</a></div>
                 <div class="sign-in">
                 <h2>Human Cinema</h2>
-                <form action="">
-                <input id="inputId" type="text" placeholder="아이디를 입력하세요" maxlength="20">
-                <input id="inputPwd" type="password" placeholder="비밀번호를 입력하세요" maxlength="20">
-                <button class="submit">로그인</button><br>
-                <div class="footer_link"><a href="http://localhost:8080/HomePage/Sign-Up.jsp">회원가입 하고 싶어요&#128155;</a></div>
-                <!-- <img src="경로" alt="" class="btn" onclick="clickBtn(); /> -->
-                </form></div>
+                <form action=""  method="get" >
+                    <div class="join_login">
+                            <input id="inputId" type="text" name="id" placeholder="아이디를 입력하세요" maxlength="20" >
+                            <input id="inputPwd1" type="password" name="pwd1" placeholder="비밀번호를 입력하세요" maxlength="20" >
+                            <input id="inputPwd2" type="password" name="pwd2" placeholder="비밀번호를 한번 더 입력하세요" maxlength="20" >
+                            <input id="inputName" type="text" name="name" placeholder="이름을 입력하세요">
+                            <input id="inputName" type="text" name="phoneNumber" placeholder="전화번호를 입력하세요">
+                        </div>
+                        <button class="submit" onclick="fn_joinMember()">회원가입</button><br>
+                        <div class="footer_link"><a href="http://localhost:8080/HomePage/Sign-In.jsp">바로 로그인 하기 &#128153;</a></div>
+                    </div>
             </div>
         </div>
-    </section>  
+    </section>       
 </body>
 </html>
