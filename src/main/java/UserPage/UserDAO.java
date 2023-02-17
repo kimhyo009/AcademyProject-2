@@ -2,6 +2,7 @@ package UserPage;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,49 +16,44 @@ import javax.sql.DataSource;
 
 	public class UserDAO {
 		
-		public List listMembers() {
-			List membersList = new ArrayList();
-			
-		try {
-			//		DB 접속
-			Context ctx = new InitialContext();
-			Context envContext = (Context) ctx.lookup("java:/comp/env"); // JNDI 사용을 위한 설정
-			DataSource dataFactory = (DataSource) envContext.lookup("jdbc/oracle");
-			Connection con = dataFactory.getConnection();
-			
-			//		SQL 준비
-			String sql = "insert into join_member (id, pwd, name, phoneNumber, email) ";
-			sql       += " VALUES (?, ?, ?, ?, ?)";
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, id);
-			ps.setString(2, pwd);
-			ps.setString(3, name);
-			ps.setString(4, phoneNumber);
-			ps.setString(5, email);
-			
-			//		SQL 실행
-			int result = ps.executeUpdate();
-			//		실행 결과를 활용
-			System.out.println("insert된 recode의 수 : "+ result);
-			
-			ps.close();
-			con.close();
-			
-			con = dataFactory.getConnection();
-			sql = "select * from join_member";
-			ps = con.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
-			PrintWriter out = response.getWriter();
-			while( rs.next()) {
-				String getId = rs.getString("id");
-				String getPwd1 = rs.getString("pwd");
-				String getName = rs.getString("name");
-				Integer getPhoneNumber = rs.getInt("phoneNumber");
-				String getEmail = rs.getString("email");
-				
-			}
-			
-		} catch (NamingException | SQLException e) {
-			e.printStackTrace();
+		public List UserList() {
+			List userList = new ArrayList();
+					try {
+							Context ctx = new InitialContext();
+							Context envContext = (Context) ctx.lookup("java:/comp/env"); // JNDI 사용을 위한 설정
+							DataSource dataFactory = (DataSource) envContext.lookup("jdbc/oracle");
+							Connection con = dataFactory.getConnection();
+												
+							String sql = " select * from t_member ";							//생성하고
+							sql 	  += " order by joindate desc";
+							PreparedStatement ps = con.prepareStatement(sql); //준비하고
+							ResultSet rs = ps.executeQuery();										//실행하고
+						
+								while( rs.next() ) {																	//결과처리
+									String id = rs.getString("id");
+									String pwd = rs.getString("pwd");
+									String name = rs.getString("name");
+									String number = rs.getString("number");
+									String email = rs.getString("email");
+									Date joindate = rs.getDate("joindate");
+									
+									UserVO vo = new UserVO();											//vo을 담고
+									vo.setId(id);
+									vo.setPwd(pwd);
+									vo.setName(name);
+									vo.setNumber(number);
+									vo.setEmail(email);
+									vo.setJoinDate(joindate);
+									
+									userList.add(vo);														//vo를 List에 담고
+								}		
+							rs.close();
+							ps.close();
+							con.close();
+								
+					} catch(Exception e) {
+							e.printStackTrace();
+					}
+				return userList; 
+				}
 		}
-}

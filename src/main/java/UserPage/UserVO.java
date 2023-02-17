@@ -1,5 +1,7 @@
 package UserPage;
 
+import java.sql.Date;
+
 public class UserVO {
 	
 	private String id;
@@ -7,6 +9,7 @@ public class UserVO {
 	private String name;
 	private String number;
 	private String email;
+	private Date joinDate;
 	
 	public String getId() {
 		return id;
@@ -37,6 +40,13 @@ public class UserVO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public Date getJoinDate() {
+		return joinDate;
+	}
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
 	}
 	
 
