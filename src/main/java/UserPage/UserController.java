@@ -64,6 +64,7 @@ public class UserController extends HttpServlet {
 			RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
 			dispatch.forward(request, response);
 			
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
