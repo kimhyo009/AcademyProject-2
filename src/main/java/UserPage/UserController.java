@@ -12,7 +12,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
+<<<<<<< HEAD
 import javax.servlet.ServletContext;
+=======
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +23,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+<<<<<<< HEAD
 @WebServlet("/user/*")
+=======
+@WebServlet("/user.do")
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UserDAO userDAO;
@@ -28,6 +35,7 @@ public class UserController extends HttpServlet {
     public void init() throws ServletException {
     	userDAO = new UserDAO();
     }
+<<<<<<< HEAD
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
 	}
@@ -71,4 +79,38 @@ public class UserController extends HttpServlet {
 		
 		
 	}
+=======
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandle(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doHandle(request, response);
+	}
+	
+	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		List<UserVO> UserList = userDAO.UserList();
+		
+//		if() {
+//			
+//		}
+		
+		//sql 출력 확인용
+		//		userDAO.test();
+		
+		request.setAttribute("userList", UserList);
+		
+		//서블릿에서 context path는 적지 않고, 자동으로 붙여준다(jsp로 바로 보여준다는건가?)
+		RequestDispatcher dispatchUserlist = request.getRequestDispatcher("/MypageForm/UserList.jsp");
+		dispatchUserlist.forward(request, response);
+				
+	}
+	
+	
+
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 }

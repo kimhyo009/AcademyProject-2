@@ -3,14 +3,21 @@ package UserPage;
 import java.io.IOException;
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.servlet.RequestDispatcher;
+=======
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 @WebServlet("/mypage.do")
+=======
+@WebServlet("/mypage")
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 public class MyPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -30,6 +37,7 @@ public class MyPageController extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
+<<<<<<< HEAD
 		String action = request.getPathInfo();
 			System.out.println("action:"+action); //출력 한번 해보고
 		String nextPage = null;
@@ -57,5 +65,8 @@ public class MyPageController extends HttpServlet {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+=======
+	
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 	}
 }

@@ -149,6 +149,7 @@
     </div>
 
       <section>
+<<<<<<< HEAD
         <article class="UserInformation">
           <table><h1>회원정보</h1></table>
          
@@ -206,6 +207,46 @@
 				</form>
         </article>
         </section>
+=======
+        <article class="a-History">
+          <table>
+            <h1>회원정보</h1>
+            <tr>
+              <th rowspan="8"><img src="" alt="프로필사진"></td>
+            </tr>
+            <tr>
+              <td id="inputset1">아이디</td>
+              <td><input id="inputSet2" name="fixedId"> </td>
+            </tr>
+            <tr>
+              <td id="inputset1">비밀번호</td>
+              <td><input id="inputSet2" name="changePwd" typle="password" name=""></td>
+            </tr>
+            <tr>
+              <td id="inputset1">비밀번호 확인</td>
+              <td><input id="inputSet2" name="changePwd2" typle="password" name=""></td>
+            </tr>
+            <tr>
+              <td id="inputset1">이름</td>
+              <td><input id="inputSet2" name="changeName"></td>
+            </tr>
+            <tr>
+              <td id="inputset1">전화번호</td>
+              <td><input id="inputSet2" name="number"></td>
+            </tr>
+            <tr>
+              <td id="inputset1">이메일</td>
+              <td><input id="inputSet2" name="email"></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <input class="button" type="button" value="수정하기"/>
+                <input class="button" type="reset" value="다시쓰기"/>
+              </td>
+            </tr>
+          </table>
+        </article>
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
     </form>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package UserPage;
 
+<<<<<<< HEAD
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,3 +63,8 @@ public class MyPageDAO {
 		return result;
 	}
 }
+=======
+public class MyPageDAO {
+
+}
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836

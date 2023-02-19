@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+=======
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 <!DOCTYPE html>
 <html>
 <head>
@@ -160,7 +163,11 @@
                 var inputPwd1 = document.getElementById("inputPwd1").value;
                 var inputPwd2 = document.getElementById("inputPwd2").value;
                 var inputName = document.getElementById("inputName").value;
+<<<<<<< HEAD
                 var inputNumber = document.getElementById("inputEmail").value;
+=======
+                var inputNumber = document.getElementById("inputNumber").value;
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
                 console.log(inputPwd2.value, inputPwd1.value, inputPwd2.value != inputPwd1.value)
 
                 if (inputId.length == 0 || inputId == "") {
@@ -179,18 +186,26 @@
                     alert("이름을 입력하세요.");
                     return false;
 
+<<<<<<< HEAD
                 }else if (inputEmail.length == 0 || inputEmail == "") {
                     alert("이메일을 입력하세요.");
+=======
+                }else if (inputNumber.length == 0 || inputNumber == "") {
+                    alert("연락처를 입력하세요.");
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
                     return false;
                 }else { 
                     alert("회원가입을 환영합니다.");
                     document.submit.submit(); 
                 }
             };   
+<<<<<<< HEAD
             
 
 		
             
+=======
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
     </script>
 </head>
 <body>
@@ -227,6 +242,7 @@
             <div class="right_login">
                 <div class="sign-in">
                 <h2>Human Cinema</h2>
+<<<<<<< HEAD
                 <form method="post"  action="/main" >
                     <div class="join_login">
                             <input id="inputId" type="text" name="id" placeholder="아이디를 입력하세요" maxlength="20" >
@@ -237,6 +253,18 @@
                         </div>
                         <button class="submit" onclick="fn_joinMember()">회원가입</button><br>
                         <div class="footer_link"><a href="http://localhost:8080/LoginForm/Login-In.jsp">바로 로그인 하기 &#128153;</a></div>
+=======
+                <form action=""  method="get" >
+                    <div class="join_login">
+                            <input id="inputId" type="text" name="id" placeholder="아이디를 입력하세요" maxlength="20" >
+                            <input id="inputPwd1" type="password" name="pwd1" placeholder="비밀번호를 입력하세요" maxlength="20" >
+                            <input id="inputPwd2" type="password" name="pwd2" placeholder="비밀번호를 한번 더 입력하세요" maxlength="20" >
+                            <input id="inputName" type="text" name="name" placeholder="이름을 입력하세요">
+                            <input id="inputName" type="text" name="phoneNumber" placeholder="전화번호를 입력하세요">
+                        </div>
+                        <button class="submit" onclick="fn_joinMember()">회원가입</button><br>
+                        <div class="footer_link"><a href="http://localhost:8080/HomePage/Sign-In.jsp">바로 로그인 하기 &#128153;</a></div>
+>>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
                     </div>
             </div>
         </div>
