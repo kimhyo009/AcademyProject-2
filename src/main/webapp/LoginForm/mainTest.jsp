@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메인jsp</title>
+
+${ parm.kk}
+${k2 }
 </head>
 <body>
 
+<a href="/HumanStudy/LoginForm/Sign-Up.jsp">회원가입하기</a><br>
+<a href="/HumanStudy/LoginForm/Log-In jsp">로그인</a>
 </body>
 </html>

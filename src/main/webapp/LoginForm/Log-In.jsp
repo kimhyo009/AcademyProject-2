@@ -162,14 +162,10 @@
             var inputId = document.getElementById("inputId").value;
             var inputPwd = document.getElementById("inputPwd").value;
             var submit = document.getElementById("submit");
-<<<<<<< HEAD
-
-=======
             // var login_findPw = document.getElementById('login_findPw');
             // var login_findid = document.getElementById('login_findid');
 
             // login_btn.addEventListener('click',(fn_loginMember))
->>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
             console.log(submit);
 
             if (inputId.length == 0 || inputId == "") {
@@ -189,10 +185,6 @@
     </script>
 </head>
 <body>
-<<<<<<< HEAD
-
-=======
->>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 <div class="wrap">
     <header>
         <nav id="nav">
@@ -228,20 +220,12 @@
                 <a href="#">Return home</a></div>
                 <div class="sign-in">
                 <h2>Human Cinema</h2>
-<<<<<<< HEAD
-                <form action="Admin.jsp" method="post">
-                <input id="inputId" type="text" placeholder="아이디를 입력하세요" maxlength="20">
-                <input id="inputPwd" type="password" placeholder="비밀번호를 입력하세요" maxlength="20">
-                <button class="submit">로그인</button><br>
-                <div class="footer_link"><a href="/LoginForm/Sign-Up.jsp">회원가입 하고 싶어요&#128155;</a></div>
-=======
                 <form action="">
                 <input id="inputId" type="text" placeholder="아이디를 입력하세요" maxlength="20">
                 <input id="inputPwd" type="password" placeholder="비밀번호를 입력하세요" maxlength="20">
                 <button class="submit">로그인</button><br>
                 <div class="footer_link"><a href="http://localhost:8080/HomePage/Sign-Up.jsp">회원가입 하고 싶어요&#128155;</a></div>
                 <!-- <img src="경로" alt="" class="btn" onclick="clickBtn(); /> -->
->>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
                 </form></div>
             </div>
         </div>

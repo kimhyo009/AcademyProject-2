@@ -7,7 +7,6 @@ public class UserVO {
 	private String id;
 	private String pwd;
 	private String name;
-<<<<<<< HEAD
 	private String email;
 	private Date joinDate;
 	
@@ -66,7 +65,6 @@ public class UserVO {
 		return joinDate;
 	}
 
-=======
 	private String number;
 	private String email;
 	private Date joinDate;
@@ -105,13 +103,8 @@ public class UserVO {
 	public Date getJoinDate() {
 		return joinDate;
 	}
->>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
 	
-<<<<<<< HEAD
-=======
-
->>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
 }

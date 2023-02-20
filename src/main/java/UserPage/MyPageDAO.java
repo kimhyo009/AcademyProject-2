@@ -1,12 +1,12 @@
 package UserPage;
 
-<<<<<<< HEAD
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MyPageDAO {
+
 	//회원정보 수정
 	public int changeInfor(UserVO user) {
 		Connection conn = null;
@@ -63,8 +63,6 @@ public class MyPageDAO {
 		return result;
 	}
 }
-=======
 public class MyPageDAO {
 
 }
->>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
