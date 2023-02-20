@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-<<<<<<< HEAD
-    <wb-module deploy-name="HumanStudy">
-        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <property name="context-root" value="HumanStudy"/>
-        <property name="java-output-path" value="/HumanStudy/build/classes"/>
-    </wb-module>
-=======
-        
-    <wb-module deploy-name="ddd">
-                
-        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-                
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-                
-        <property name="java-output-path" value="/ddd/build/classes"/>
-        <property name="context-root" value="ddd"/>
             
-    </wb-module>
     
->>>>>>> 3d6966bc0028e0d9943b421064c81327b6c8b836
+    <wb-module deploy-name="ddd">
+                        
+        
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/" source-path="/"/>
+                        
+        
+        <property name="java-output-path" value="/ddd/build/classes"/>
+                
+        <property name="context-root" value="ddd"/>
+                    
+    
+    </wb-module>
+        
+
 </project-modules>
