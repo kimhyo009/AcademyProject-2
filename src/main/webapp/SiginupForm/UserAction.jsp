@@ -15,11 +15,11 @@
 <%
    UserDAO userDAO= new UserDAO();
 	userDAO.addUser(m);
-   List userList = userDAO.listUser();
+   List<UserVO> userList = userDAO.listUser();
    request.setAttribute("userList", userList);
 %> 
 </head>
 <body>
-<jsp:forward  page="/HumanStudy/SiginupForm/UserList.jsp" />
+<jsp:forward  page="/HumanStudy/LoginForm/UserList.jsp" />
 </body>
 </html>

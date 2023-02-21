@@ -5,32 +5,30 @@ public class TestService {
 	void service() {
 		System.out.println("testservice의 serivce(call)를 실행함");
 		
-		TestDAO dao = new TestDAO();
-		dao.dao();
+		TestDAO testservice = new TestDAO();
+		testservice.daocall();
 	}
-	
-	int service2(String service) {
+	//1-2. controller에서 service 호출
+//---------------------------------------------------------------
+
+	void service2(String aa) {
 		System.out.println("testservice의 dao2 실행");
 
-		TestDAO dao = new TestDAO();
-		int result = dao.dao3(service);
-		System.out.println("dao에서 받은 ");
-		
-		return result;
+		TestDAO testservice2 = new TestDAO();
+		testservice2.daocall2(aa);
 	}
-	//3. controlloer의 (a)값을 다시 (service) 값으로 받아오고
-	int service3 (String service) {
-		System.out.println("testservice의 dao3 실행");
-		
+	//---------------------------------------------------------------	
+	
+	int service3 (String C) {
+		System.out.println("testservice의 service3 3-11실행");
+	//3-4 String인 b값을 service로 C받아옴
 		TestDAO dao = new TestDAO();
-	//4. service로 받은 것을 다시 dao3(service)로 받아옴
-	//5. dao3이 TestDAO 전달하고
-	//9. int 타입의 result(123)이 다시 전달되어 	
-	int result = dao.dao3(service);
-	//10. 출력이 된다.
-		System.out.println("dao에서 받은 값: "+result);
-
-    //11. 리턴되어 controller에 int 값을 돌려줌
+		int result = dao.daocall3(C);
+	//3-5 String C받은 값을 daocall3(C)로 전달
+	//3-6 C값은 TestDAO의 daocall3 String(d)값으로 전달
+		System.out.println("daocall3에서 받은 값: "+ result);
+	//3-10 리턴되어 'int daocall3' 전달되어 온 int가 'int result'로 타고 들어옴
+	//3-11 'int result'를 호출한 'int service3' 위로 되돌아가 출력이 됨
 		return result;
 	}
 	

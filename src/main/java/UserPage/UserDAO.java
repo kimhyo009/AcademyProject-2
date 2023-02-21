@@ -24,39 +24,44 @@ import javax.sql.DataSource;
 			try {
 				Context ctx = new InitialContext();
 				Context envContext = (Context) ctx.lookup("java:/comp/env");
-				dataFactory = (DataSource) envContext.lookup("jdbc/oracle");
+				dataFactory = (DataSource) envContext.lookup("jdbc/oracle2");
+				System.out.println("DB접속 성공");
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("DB접속 실패");
 			}
 		}
 		
-		//회원가입 중복확인
-		public boolean overlappedID(String id){
+		//로그인(mvc patter2)
+		public boolean loginDAO(String id, String pwd) {
+			System.out.println("loginDAO 실행");
 			boolean result = false;
 			try {
-				con = dataFactory.getConnection();
-				String query = "select decode(count(*),1,'true','false') as result from t_member";
-				query += " where id=?";
-				System.out.println("prepareStatememt: " + query);
-				pstmt = con.prepareStatement(query);
-				pstmt.setString(1, id);
-				ResultSet rs = pstmt.executeQuery();
-				rs.next();
-				result = Boolean.parseBoolean(rs.getString("result"));
-				pstmt.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			return result;
-		}
-		
-		//회원가입
-		public List listUser() {
-			List list = new ArrayList();
+               Connection con = dataFactory.getConnection();
+               String query = "SELECT * FROM USER WHERE id=? AND pwd=?";
+               pstmt = con.prepareStatement(query);
+               pstmt.setString(1, id);
+               pstmt.setString(2, pwd);
+               
+               ResultSet rs = pstmt.executeQuery();
+               	if(rs.next()){
+               		result = true;
+               	}
+               pstmt.close();
+               con.close();
+               rs.close();
+            } catch (SQLException e) {
+               e.printStackTrace();
+            }
+            return result;
+	}
+				
+		//회원가입(mvc pattern2)
+		public List<UserVO> listUser() {
+			System.out.println("UserDAO의 listUser를 실행함");
+			List<UserVO> list = new ArrayList<UserVO>();
 			try {
-				con = dataFactory.getConnection();
+				Connection con = dataFactory.getConnection();
 				String query = "select * from t_member order by joinDate desc ";
 				System.out.println("prepareStatememt: " + query);
 				pstmt = con.prepareStatement(query);
@@ -79,18 +84,19 @@ import javax.sql.DataSource;
 				pstmt.close();
 				con.close();
 			} catch (Exception e) {
+				System.out.println("UserDAO listUser 오류");
 				e.printStackTrace();
 			}
 			return list;
 		}
-
-		public void addUser(UserVO userVO) {
+		//회원가입 정보를 가지고 UserList 생성(UserAction.jsp)
+		public void addUser(UserVO m) {
 			try {
 				Connection con = dataFactory.getConnection();
-				String id = userVO.getId();
-				String pwd = userVO.getPwd();
-				String name = userVO.getName();
-				String email = userVO.getEmail();
+				String id = m.getId();
+				String pwd = m.getPwd();
+				String name = m.getName();
+				String email = m.getEmail();
 				String query = "insert into t_member";
 				query += " (id,pwd,name,email)";
 				query += " values(?,?,?,?)";
@@ -100,36 +106,36 @@ import javax.sql.DataSource;
 				pstmt.setString(2, pwd);
 				pstmt.setString(3, name);
 				pstmt.setString(4, email);
-				pstmt.executeUpdate();
+				pstmt.executeUpdate(); 
+				//executeUpdate: 반환타입int, 데이터를 추가(Insert), 삭제(Delete), 수정(Update)하는 SQL 문을 실행
 				pstmt.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
-		//로그인
-		public boolean login(UserVO userVO) {
+
+		//회원가입 중복확인
+		public boolean overlappedID(String id){
 			boolean result = false;
 			try {
-               Connection con = dataFactory.getConnection();
-               String query = "SELECT * FROM USER WHERE id=? AND pwd=?";
-               pstmt = con.prepareStatement(query);
-               pstmt.setString(1, id);
-               pstmt.setString(2, pwd);
-               
-               ResultSet rs = pstmt.executeQuery();
-               	if(rs.next()){
-               		result = true;
-               	}
-               pstmt.close();
-               con.close();
-               rs.close();
-               
-            } catch (SQLException e) {
-               e.printStackTrace();
-            }
+				con = dataFactory.getConnection();
+				String query = "select decode(count(*),1,'true','false') as result from t_member";
+				query += " where id=?";
+				System.out.println("prepareStatememt: " + query);
+				pstmt = con.prepareStatement(query);
+				pstmt.setString(1, id);
+				ResultSet rs = pstmt.executeQuery();
+				rs.next();
+				result = Boolean.parseBoolean(rs.getString("result"));
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
-            return result;
-		
-	}
+			return result;
+		}
+
+
+
+				
 }
