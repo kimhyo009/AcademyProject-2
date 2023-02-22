@@ -5,12 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
 public class MyPageDAO {
 
 	//회원정보 수정
 	public int changeInfor(UserVO user) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		DataSource dataFactory = null;
 		int result = -1;
 		
 		try {

@@ -137,6 +137,7 @@
 <body>
 <jsp:include page="/SiginupForm/Header.jsp"></jsp:include>
     <section class="login">
+    
         <div class="login_box">
             <div class="left_img">
                 <div class="slider">
@@ -158,7 +159,7 @@
                 <a href="#">Return home</a></div>
                 <div class="sign-in">
                 <h2>Human Cinema</h2>
-                <form method="post" action="/HumanStudy/LoginForm/UserAction.jsp">
+                <form method="post" action="../LoginForm/UserList.jsp">
                 <input id="inputId" type="text" placeholder="아이디를 입력하세요" maxlength="20">
                 <input id="inputPwd" type="password" placeholder="비밀번호를 입력하세요" maxlength="20">
                 <button class="submit">로그인</button><br>

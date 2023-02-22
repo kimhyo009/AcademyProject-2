@@ -204,6 +204,8 @@
                     <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86341/86341_1000.jpg">
                 </div>
             </div>
+            
+            
             <div class="right_login">
                 <div class="sign-in">
                 <h2>Human Cinema</h2>
