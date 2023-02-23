@@ -108,29 +108,9 @@
             setInterval(fnSlide, 3000);
         }
        
-        function fn_loginMember(){
+        
+        
 
-            var inputId = document.getElementById("inputId").value;
-            var inputPwd = document.getElementById("inputPwd").value;
-            var submit = document.getElementById("submit");
-
-            // login_btn.addEventListener('click',(fn_loginMember))
-            console.log(submit);
-
-            if (inputId.length == 0 || inputId == "") {
-                alert("아이디를 입력하세요.");
-                return false;
-
-            }else if (inputPwd.length == 0 || inputPwd == "") {
-                alert("비밀번호를 입력하세요.");
-                return false;
-
-            }else if (inputId == "admin" && inputPwd == '0000') {
-                alert("로그인 되었습니다.")
-            } else {
-                alert("아이디와 비밀번호를 다시 확인해주세요.")
-            }
-        } 
         
     </script>
 </head>

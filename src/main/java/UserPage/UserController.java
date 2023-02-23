@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 //http://localhost:8080/HumanStudy/user 웹브라우저는 doGet
 @WebServlet("/user/*")
@@ -55,6 +56,9 @@ public class UserController extends HttpServlet {
 			
 			//로그인(mvc pattern2)
 		}else if (action.equals("/Login")) {
+			HttpSession session = request.getSession();
+			
+			System.out.println(session.getAttribute("id"));
 			String id = request.getParameter("id");
 			String pwd = request.getParameter("pwd");
 			System.out.println(id + pwd);
@@ -66,24 +70,10 @@ public class UserController extends HttpServlet {
 			System.out.println(id+pwd);
 			
 			if( result ) {
-				
-//				if(action==true) {
-//					String id = request.getParameter("id");
-//					String pwd = request.getParameter("pwd");
-//					String name = request.getParameter("name");
-//					String email = request.getParameter("email");
-//					MypageService mypage = new MypageService(id, pwd, name, email);
-//					mypage.serPage()
-//					
-//				//회원 삭제(Mypage delete)
-//				}else if(action==del)) {
-//					String id = request.getParameter("id");
-//					MypageDAO.delete(id);
-//					request.setAttribute(", action)
-//				}	
-				
-				page = "/UserForm/Mypage.jsp";
-				System.out.println("로그인 성공");
+					session.setAttribute("id",id);
+					page = "/UserForm/Mypage.jsp";
+					System.out.println("session:"+session);
+
 			} else {
 				page = "/UserForm/LogIn.jsp";
 				System.out.println("로그인 실패");
