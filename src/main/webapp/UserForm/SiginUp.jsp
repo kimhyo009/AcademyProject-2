@@ -148,41 +148,7 @@
              });  //end ajax	 
           }	
 
-        function fn_process() {
-                var inputId = document.getElementById("inputId").value;
-                var inputPwd1 = document.getElementById("inputPwd1").value;
-                var inputPwd2 = document.getElementById("inputPwd2").value;
-                var inputName = document.getElementById("inputName").value;
-                var inputNumber = document.getElementById("inputNumber").value;
-                console.log(inputPwd2.value, inputPwd1.value, inputPwd2.value != inputPwd1.value)
 
-                if (inputId.length == 0 || inputId == "") {
-                    alert("아이디를 입력하세요.");
-                    return false;
-
-                }else if (inputPwd1.length == 0 || inputPwd1 == "") {
-                    alert("비밀번호를 입력하세요.");
-                    return false;
-
-                }else if (inputPwd2!= inputPwd1) {
-                    alert("비밀번호가 일치하지 않습니다.");
-                    return false;
-
-                }else if (inputName.length == 0 || inputName == "") {
-                    alert("이름을 입력하세요.");
-                    return false;
-
-                }else if (inputNumber.length == 0 || inputNumber == "") {
-                    alert("연락처를 입력하세요.");
-                    return false;
-                }else { 
-                    alert("회원가입을 환영합니다.");
-                    document.submit.submit(); 
-                }
-            }
-        
-        	
-        
     </script>
 </head>
 <body>
@@ -209,7 +175,7 @@
             <div class="right_login">
                 <div class="sign-in">
                 <h2>Human Cinema</h2>
-                <form method="post" action="/HumanStudy/SiginupForm/UserAction.jsp">
+                <form method="post" action="/HumanStudy/UserForm/LogIn.jsp">
                   <div class="join_login">
                      <div class="inputSet"><input id="inputId" type="text" name="id" placeholder="아이디를 입력하세요" maxlength="20" >
                      <button class="check">&#128504;</button></div>
@@ -220,7 +186,7 @@
                      <div class="inputSet"><input id="inputEmail" type="text" name="email" placeholder="이메일를 입력하세요"></div>
                  </div>
                  <button class="submit" onclick="fn_process()">회원가입</button><br>
-                 <div class="footer_link"><a href="#">바로 로그인 하기 &#128153;</a></div>
+                 <div class="footer_link"><a href="/HumanStudy/UserForm/LogIn.jsp">바로 로그인 하기 &#128153;</a></div>
                  </form>
                </div>
             </div>

@@ -91,6 +91,7 @@
     
     </style>
     <script>
+    
         window.onload = function(){
             init();
             bind();
@@ -112,8 +113,6 @@
             var inputId = document.getElementById("inputId").value;
             var inputPwd = document.getElementById("inputPwd").value;
             var submit = document.getElementById("submit");
-            // var login_findPw = document.getElementById('login_findPw');
-            // var login_findid = document.getElementById('login_findid');
 
             // login_btn.addEventListener('click',(fn_loginMember))
             console.log(submit);
@@ -132,6 +131,7 @@
                 alert("아이디와 비밀번호를 다시 확인해주세요.")
             }
         } 
+        
     </script>
 </head>
 <body>
@@ -159,11 +159,11 @@
                 <a href="#">Return home</a></div>
                 <div class="sign-in">
                 <h2>Human Cinema</h2>
-                <form method="post" action="../LoginForm/UserList.jsp">
-                <input id="inputId" type="text" placeholder="아이디를 입력하세요" maxlength="20">
-                <input id="inputPwd" type="password" placeholder="비밀번호를 입력하세요" maxlength="20">
+                <form method="post" action="/HumanStudy/user/Login">
+                <input id="inputId" type="text" placeholder="아이디를 입력하세요" maxlength="20" name="id">
+                <input id="inputPwd" type="password" placeholder="비밀번호를 입력하세요" maxlength="20" name="pwd">
                 <button class="submit">로그인</button><br>
-                <div class="footer_link"><a href="http://localhost:8080/HomePage/Sign-Up.jsp">회원가입 하고 싶어요&#128155;</a></div>
+                <div class="footer_link"><a href="/HumanStudy/UserForm/SiginUp.jsp">회원가입 하고 싶어요&#128155;</a></div>
                 <!-- <img src="경로" alt="" class="btn" onclick="clickBtn(); /> -->
                 </form></div>
             </div>

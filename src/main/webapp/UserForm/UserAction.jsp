@@ -20,6 +20,6 @@
 %> 
 </head>
 <body>
-<jsp:forward  page="/HumanStudy/LoginForm/UserList.jsp" />
+<jsp:forward  page="/HumanStudy/UserForm/UserList.jsp" />
 </body>
 </html>
