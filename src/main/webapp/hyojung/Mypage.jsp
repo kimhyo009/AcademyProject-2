@@ -121,7 +121,8 @@
 </head>
 <body>
   <form>
-<jsp:include page="/UserForm/Header.jsp"></jsp:include>
+<%-- !!!!!!!!!!!!!!파일 이동 시 변경해야 하는 주소!!!!!!!!!!!!!!!--%>
+<jsp:include page="/hyojung/Header.jsp"></jsp:include>
     <div id="content-wrap">
       <aside>
         <h1>My Page</h1>
@@ -135,8 +136,8 @@
       <section>
         <article class="UserInformation">
           <table><h1>회원정보</h1></table>
-         
-           <form action=".do" method="dohandle" name="frm">
+<%-- !!!!!!!!!!!!!!파일 이동 시 변경해야 하는 주소!!!!!!!!!!!!!!!--%>       
+           <form action="userlist" method="dohandle" name="frm">
 	        <table>
 	            <tr>
 	              <th rowspan="8"><img src="" alt="프로필사진"></td>
@@ -174,6 +175,7 @@
 	          </table>
 	          </form>
 	          
+<%-- !!!!!!!!!!!!!!파일 이동 시 변경해야 하는 주소!!!!!!!!!!!!!!!--%>
 	          	<form action="mypage.do">
 					<br />
 					<table>

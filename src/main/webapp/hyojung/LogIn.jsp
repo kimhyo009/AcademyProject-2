@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>로그인</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <style>
     .login {
         height: 100vh;
@@ -48,26 +47,16 @@
         margin-bottom: 50px;
     }
      .right_login input {
-        border: none;
+        width: 100%;
         outline: none;
-    }
-    .inputSet{
         font-size: 15px;
         font-weight: 500;
         align-items: center;
-        margin: 10px 0px;
+        margin: 15px 0px;
         padding: 10px;
         padding-left: 20px;
         border: 1px solid lightgray;
         border-radius: 20px;
-        text-align: left;
-    }
-    .check{
-        font-size: 12px;
-        border-radius: 50%;
-        border: none;
-        color: #fff;
-        background: darkred;
     }
 
     .right{background: linear-gradient(-45deg, #dcd7e0, #fff);}
@@ -98,10 +87,11 @@
         background-size: 100%;
     }
     section {display: flex; overflow: hidden;}
-    img{width: 100%;}
+    #mainImage{width: 100%;}
     
     </style>
     <script>
+    
         window.onload = function(){
             init();
             bind();
@@ -118,41 +108,13 @@
             setInterval(fnSlide, 3000);
         }
         
-         function fn_process(){
-             var _id=$("#inputId").val();
-             if(_id==''){
-            	 return;
-             }
-             $.ajax({
-                type:"post",
-                async:true,  
-                url:"http://localhost:8080/HumanStudy/user",
-                dataType:"text",
-                data: {id:_id},
-                success:function (data,textStatus){
-             	   //alert(data);
-             	   
-                   if(data=='usable'){
-                	   $('#message').text("사용할 수 있는 ID입니다.");
-                	   $('#check').prop("disabled", true);
-                   }else{
-                	   $('#message').text("사용할 수 없는 ID입니다.");
-                   }
-                },
-                error:function(data,textStatus){
-                   alert("에러가 발생했습니다.");ㅣ
-                },
-                complete:function(data,textStatus){
-                   //alert("작업을완료 했습니다");
-                }
-             });  //end ajax	 
-          }	
-
-
+       String 
+            
     </script>
 </head>
 <body>
-<jsp:include page="/UserForm/Header.jsp"></jsp:include>
+<%-- !!!!!!!!!!!!!!파일 이동 시 변경해야 하는 주소!!!!!!!!!!!!!!!--%>
+<jsp:include page="/hyojung/Header.jsp"></jsp:include>
     <section class="login">
         <div class="login_box">
             <div class="left_img">
@@ -170,27 +132,19 @@
                     <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86341/86341_1000.jpg">
                 </div>
             </div>
-            
-            
             <div class="right_login">
                 <div class="sign-in">
                 <h2>Human Cinema</h2>
-                <form method="post" action="/HumanStudy/UserForm/LogIn.jsp">
-                  <div class="join_login">
-                     <div class="inputSet"><input id="inputId" type="text" name="id" placeholder="아이디를 입력하세요" maxlength="20" >
-                     <button class="check">&#128504;</button></div>
-                     <div id="message"></div>
-                     <div class="inputSet"><input id="inputPwd1" type="password" name="pwd1" placeholder="비밀번호를 입력하세요" maxlength="20" ></div>
-                     <div class="inputSet"><input id="inputPwd2" type="password" name="pwd2" placeholder="한번 더 입력하세요" maxlength="20" ></div>
-                     <div class="inputSet"><input id="inputName" type="text" name="name" placeholder="이름을 입력하세요"></div>
-                     <div class="inputSet"><input id="inputEmail" type="text" name="email" placeholder="이메일를 입력하세요"></div>
-                 </div>
-                 <button class="submit" onclick="fn_process()">회원가입</button><br>
-                 <div class="footer_link"><a href="/HumanStudy/UserForm/LogIn.jsp">바로 로그인 하기 &#128153;</a></div>
-                 </form>
-               </div>
+<%-- !!!!!!!!!!!!!!파일 이동 시 변경해야 하는 주소!!!!!!!!!!!!!!!--%>
+                <form method="post" action="/HumanStudy/hyojung/Login">
+                <input id="inputId" type="text" placeholder="아이디를 입력하세요" maxlength="20" name="id">
+                <input id="inputPwd" type="password" placeholder="비밀번호를 입력하세요" maxlength="20" name="pwd">
+                <button class="submit">로그인</button><br>
+<%-- !!!!!!!!!!!!!!파일 이동 시 변경해야 하는 주소!!!!!!!!!!!!!!!--%>
+                <div class="footer_link"><a href="/HumanStudy/hyojung/SignUp.jsp">회원가입 하고 싶어요&#128155;</a></div>
+                </form></div>
             </div>
         </div>
-    </section>       
+    </section>  
 </body>
 </html>

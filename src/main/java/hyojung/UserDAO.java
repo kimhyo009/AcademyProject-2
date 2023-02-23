@@ -1,4 +1,4 @@
-package UserPage;
+package hyojung;
 
 import java.sql.Connection;
 import java.sql.Date;
