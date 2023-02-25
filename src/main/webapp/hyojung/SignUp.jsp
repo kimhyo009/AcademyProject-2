@@ -62,7 +62,7 @@
     }
     .check{
         font-size: 12px;
-        border-radius: 50%;
+        border-radius: 15px;
         border: none;
         color: #fff;
         background: darkred;
@@ -96,7 +96,8 @@
         background-size: 100%;
     }
     section {display: flex; overflow: hidden;}
-     #mainImage{width: 100%;}
+    #mainImage{width: 100%;}
+     
     </style>
            <script>
     window.onload = function(){
@@ -153,6 +154,7 @@
 	                }
              });  //end ajax	 
           }	
+         
     </script>
         
     
@@ -165,17 +167,9 @@
         <div class="login_box">
             <div class="left_img">
                 <div class="slider">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86799/86799_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86756/86756_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86072/86072_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86796/86796_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86829/86829_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86701/86701_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86800/86800_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86748/86748_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86793/86793_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86797/86797_1000.jpg">
-                    <img id="mainImage" src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86341/86341_1000.jpg">
+                    <img id="mainImage" src="/HumanStudy/img/poster1.jpg">
+                    <img id="mainImage" src="/HumanStudy/img/poster2.jpg">
+                    <img id="mainImage" src="/HumanStudy/img/poster3.jpg">
                 </div>
             </div>
             

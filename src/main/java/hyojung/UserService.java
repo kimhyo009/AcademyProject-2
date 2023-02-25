@@ -35,11 +35,19 @@ public class UserService {
 	}
 	
 	//마이페이지
-		public void serPage(String pwd, String name, String email) {
-			System.out.println("serPage이 VO를 다녀왔습니다");
-			MypageDAO actpage= new MypageDAO();
-			String result = actpage.
-		}
-
+	public void serPage(String id) {
+		System.out.println("serPage이 VO를 다녀왔습니다");
+		UserDAO actpage= new UserDAO();
+		result = actpage.update();
+		
+		return result;
+	}
+	
+	//회원삭제
+	public void serDel(String id) {
+		System.out.println("serDel이 VO를 다녀왔습니다");
+		UserDAO actdel= new UserDAO();
+		actdel.delete(id);
+	}
 	
 }
