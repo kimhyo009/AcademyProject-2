@@ -136,31 +136,31 @@ public class UserController extends HttpServlet {
 		
 		//마이페이지 내 정보 수정
 		} else if (action.equals("/update")) {
-			
+			System.out.println("회원정보수정 출력");
+		
+			UserService actupdate = new UserService();
 			String id = request.getParameter("id");
 			String pwd1 = request.getParameter("pwd1");
-			String pwd2 = request.getParameter("pwd2");
 			String name = request.getParameter("name");
 			String email = request.getParameter("email");
-			System.out.println("update getParam:"+id+"/"+pwd1+"/"+pwd2+"/"+name+"/"+email);
+			System.out.println("update getParam:"+id+"/"+pwd1+"/"+"/"+name+"/"+email);
 			
-				if(pwd1.equals(pwd2)) {
-					UserService serupdate  = new UserService();
-					UserVO m = new UserVO();
-					m.setId(id);
-					m.setPwd(pwd1);
-					m.setName(name);
-					m.setEmail(email);
-					serupdate.serUpdate(m);
-					
-					page="/hyojung/Mypage.jsp";
+			String pwd2 = null;
+			if(pwd1.equals(pwd2)) {
+				UserVO vo = new UserVO();
+				vo.setId(id);
+				vo.setPwd(pwd1);
+				vo.setName(name);
+				vo.setEmail(email);
+				actupdate.serUpdate(vo);
+				page="/hyojung/Mypage.jsp";
 				}
 				
 		//회원탈퇴
  		}else if(action.equals("/delete")){
  				String delid = request.getParameter("id");
-// 				delid.serDel(id);
-//				page="/hyojung/Mypage.jsp";
+				//delid.serDel();
+				page="/hyojung/Mypage.jsp";
 			
  		}
 	

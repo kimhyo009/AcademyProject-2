@@ -95,9 +95,9 @@
             	<span style="cursor: pointer">고객센터</span></div>
         </div>
         <div class="login_signup">
-            <div id="h7"><a href="/HumanCinema/user/login.jsp">
+            <div id="h7"><a href="/HumanStudy/hyojung/LogIn.jsp">
            		<span style="cursor: pointer">로그인</span></a></div>
-            <div id="h8"><a href="/HumanCinema/user/new.jsp">
+            <div id="h8"><a href="/HumanStudy/hyojung/SignUp.jsp">
             	<span style="cursor: pointer">회원가입</span></a></div>
         </div>
     </header>
