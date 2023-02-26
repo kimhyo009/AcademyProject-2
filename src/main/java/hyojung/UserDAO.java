@@ -1,7 +1,6 @@
 package hyojung;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -111,7 +110,7 @@ import javax.sql.DataSource;
 			return list;
 		}
 		
-		//마이페이지 내정보 수정
+		//마이페이지 내정보출력
 		public UserVO mypage(String id) {
 			UserVO mypage = null;
 			try {

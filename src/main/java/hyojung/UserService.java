@@ -34,13 +34,20 @@ public class UserService {
 		return result;
 	}
 	
-	//마이페이지
-	public void serPage(String id) {
+	//마이페이지 내 정보 출력
+	public UserVO serPage(String id) {
 		System.out.println("serPage이 VO를 다녀왔습니다");
 		UserDAO actpage= new UserDAO();
-		result = actpage.update();
+		UserVO result = actpage.mypage(id);
 		
 		return result;
+	}
+	
+	//내 정보 업데이트
+	public void serUpdate(UserVO userVO) {
+		System.out.println("serUpdate가 VO를 다녀왔습니다");
+		UserDAO actupdate = new UserDAO();
+		actupdate.update(userVO);
 	}
 	
 	//회원삭제

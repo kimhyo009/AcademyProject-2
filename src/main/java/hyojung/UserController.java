@@ -117,35 +117,51 @@ public class UserController extends HttpServlet {
 				}
 				System.out.println("로그인 출력");
 			
-		//마이페이지
+		//마이페이지 내 정보 출력
 		} else if (action.equals("/mypage")){
 			HttpSession session = request.getSession();
 			String id = (String)session.getAttribute("id");
-			if(id!=null) {
-				
-				String myid = request.getParameter("id");
-				String mypwd = request.getParameter("pwd");
-				String myname = request.getParameter("name");
-				String mymail = request.getParameter("email");
-
-				UserService mypage = new UserService();
-				String result = mypage.serPage(id);
-				request.setAttribute("id", id);
-				
-				page="/hyojung/Mypage.jsp";
+			System.out.println("session id값:" +id);
+					if(id!=null) {
+						UserService mypage = new UserService();
+						UserVO result = mypage.serPage(id);
+						request.setAttribute("result", result);
+						System.out.println(result);					
+						
+						page="/hyojung/Mypage.jsp";
+					} else {
+						System.out.println("session id값이 없습니다.");
+						page="/hyojung/LogIn.jsp";
+					}
+		
+		//마이페이지 내 정보 수정
+		} else if (action.equals("/update")) {
 			
-			}
+			String id = request.getParameter("id");
+			String pwd1 = request.getParameter("pwd1");
+			String pwd2 = request.getParameter("pwd2");
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			System.out.println("update getParam:"+id+"/"+pwd1+"/"+pwd2+"/"+name+"/"+email);
 			
-	
+				if(pwd1.equals(pwd2)) {
+					UserService serupdate  = new UserService();
+					UserVO m = new UserVO();
+					m.setId(id);
+					m.setPwd(pwd1);
+					m.setName(name);
+					m.setEmail(email);
+					serupdate.serUpdate(m);
+					
+					page="/hyojung/Mypage.jsp";
+				}
+				
 		//회원탈퇴
  		}else if(action.equals("/delete")){
-			HttpSession session = request.getSession();
-			String id = (String)session.getAttribute("id");
-			if(id!=null) {
-				String delid = request.getParameter("id");
-				
-				page="/hyojung/Mypage.jsp";
-			}
+ 				String delid = request.getParameter("id");
+// 				delid.serDel(id);
+//				page="/hyojung/Mypage.jsp";
+			
  		}
 	
 		

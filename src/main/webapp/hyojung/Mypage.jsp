@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    isELIgnored="false"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"  />
 <!DOCTYPE html>
+
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -29,19 +35,19 @@
     </div>
       <section>
         <article class="UserInformation">
-          <table><h2>회원정보</h2></table>
+          <h2>회원정보</h2>
 <%-- !!!!!!!!!!!!!!파일 이동 시 변경해야 하는 주소!!!!!!!!!!!!!!!--%>       
-           <form action="userlist" method="dohandle" name="frm">
+           <form method="post" action="  ${contextPath}/user/mypage?id=${result.id}" >
 	        <table>
 	            <tr>
 	              <td id="inputset1">아이디</td>
-	              <td><input id="inputset2" name="changeId" value='${id}'></td>
+	              <td><input id="inputset2" name="changeId" value='${result.id}' disabled></td>
 	              
 	              <td></td>
 	            </tr>
 	            <tr>
 	              <td id="inputset1">비밀번호</td>
-	              <td><input id="inputSet2" name="changePwd" type="password" size="40" value='${pwd}'></td>
+	              <td><input id="inputSet2" name="changePwd" type="password" size="40" value='${result.pwd}'></td>
 	            </tr>
 	            <tr>
 	              <td id="inputset1">비밀번호 확인</td>
@@ -49,17 +55,17 @@
 	            </tr>
 	            <tr>
 	              <td id="inputset1">이름</td>
-	              <td><input id="inputSet2" name="changeName" value='${name}'></td>
+	              <td><input id="inputSet2" name="changeName" value='${result.name}'></td>
 	            </tr>
 	            <tr>
 	              <td id="inputset1">이메일</td>
-	              <td><input id="inputSet2" name="email" value='${email}'></td>
+	              <td><input id="inputSet2" name="email" value='${result.email}'></td>
 	            </tr>
 
 	            <tr>
 	              <td colspan="2">
-	                <input class="button" type="button" value="수정하기"/>
-	                <input class="button" type="reset" value="다시쓰기"/>
+	                <input type="submit" value="수정하기" >
+	                <input type="reset" value="다시입력" >
 	              </td>
 	            </tr>
 	          </table>
