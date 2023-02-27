@@ -172,6 +172,7 @@ import javax.sql.DataSource;
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}
 		
 		//회원가입 중복확인

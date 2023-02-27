@@ -141,11 +141,11 @@ public class UserController extends HttpServlet {
 			UserService actupdate = new UserService();
 			String id = request.getParameter("id");
 			String pwd1 = request.getParameter("pwd1");
+			String pwd2 = request.getParameter("pwd2");
 			String name = request.getParameter("name");
 			String email = request.getParameter("email");
 			System.out.println("update getParam:"+id+"/"+pwd1+"/"+"/"+name+"/"+email);
 			
-			String pwd2 = null;
 			if(pwd1.equals(pwd2)) {
 				UserVO vo = new UserVO();
 				vo.setId(id);
@@ -158,12 +158,15 @@ public class UserController extends HttpServlet {
 				
 		//회원탈퇴
  		}else if(action.equals("/delete")){
- 				String delid = request.getParameter("id");
-				//delid.serDel();
-				page="/hyojung/Mypage.jsp";
-			
+ 				String id = request.getParameter("id");
+ 				String pwd = request.getParameter("pwd");
+ 				if(pwd!=null) {
+ 					UserService actdel = new UserService();
+ 					actdel.serDel(id);
+ 					
+ 					page="/HumanCinema/movie1/main.do";
+ 				}
  		}
-	
 		
 		if(!action.equals("/check")) {
 			RequestDispatcher dispatch = request.getRequestDispatcher(page);
@@ -194,8 +197,5 @@ public class UserController extends HttpServlet {
 //		}
 //	}
 
-		
-		
-		
-	}
+ 		}
 }
