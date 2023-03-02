@@ -67,9 +67,7 @@
 </head>
 <body>
 
-<c:choose>
-	<c:when test="${ }"></c:when>
-</c:choose>
+
 	
 <%-- !!!!!!!!!!!!!!파일 이동 시 변경해야 하는 주소!!!!!!!!!!!!!!!--%>
 <jsp:include page="/hyojung/Header.jsp"></jsp:include>
